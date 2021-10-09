@@ -1,0 +1,76 @@
+function bobing(){
+  let arr = [];
+  for(var i=0;i<6;i++){
+    let num = Math.ceil(Math.random()*6)
+    arr.push(num)
+  }
+  console.log(arr)
+  let dsArr = [0, 0, 0, 0, 0, 0];
+  arr.forEach(item => {
+    dsArr[item - 1]++
+  });
+   if (dsArr[3] === 4 && dsArr[0] === 2) {
+      console.log('状元插金花')
+      return false;
+    }
+    // 4个4 状元
+    if (dsArr[3] >= 4) {
+     console.log('状元')
+     return false;
+    }
+    // 3个4 三红
+    if (dsArr[3] === 3) {
+      console.log('三红')
+      return false;
+    }
+    // 对堂123456
+    if (dsArr[0] === 1 && dsArr[1] === 1 && dsArr[2] === 1 && dsArr[3] === 1 && dsArr[4] === 1 && dsArr[5] === 1) {
+      console.log('对堂')
+      return false;
+    }
+    // 2举
+    if (dsArr[3] === 2) {
+      console.log('2举')
+      return false;
+    }
+    // 1秀
+    if (dsArr[3] === 1) {
+      console.log('1秀')
+      return false;
+    }
+    // 五个相同及以上 状元
+    if (dsArr.some(item => { return item > 4 })) {
+      console.log('状元')
+      return false;
+    }
+    // 4进
+    if (dsArr.some(item => { return item === 4 })) {
+      console.log('4进')
+      return false;
+    }
+    // 没有奖励
+    if (dsArr[3] === 0) {
+      console.log('没有奖励')
+      return false;
+    }
+}
+
+
+"list": [{
+				"pagePath": "pages/My/zhuye/zhuye",
+				"iconPath": "static/主页/zhuye.png",
+				"selectedIconPath": "static/主页/zhuye_1.png",
+				"text": "主页"
+			},
+			{
+				"pagePath": "pages/My/rules/rules",
+				"iconPath": "static/组件/1.png",
+				"selectedIconPath": "static/组件/2.png",
+				"text": "规则"
+			}, {
+				"pagePath": "pages/My/start/start",
+				"iconPath": "static/组件/3.png",
+				"selectedIconPath": "static/组件/4.png",
+				"text": "开始"
+			}
+		]
